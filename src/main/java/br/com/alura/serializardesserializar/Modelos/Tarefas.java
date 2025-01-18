@@ -5,10 +5,6 @@ public class Tarefas {
     private boolean concluida;
     private String pessoaResponsavel;
 
-    public String getDesricao() {
-        return descricao;
-    }
-
     public String getDescricao() {
         return descricao;
     }
@@ -33,6 +29,10 @@ public class Tarefas {
         this.pessoaResponsavel = pessoaResponsavel;
     }
 
+    public Tarefas() {
+
+    }
+
     public Tarefas(String descricao, boolean concluida, String pessoaResponsavel) {
         this.descricao = descricao;
         this.concluida = concluida;
@@ -41,8 +41,10 @@ public class Tarefas {
 
     @Override
     public String toString() {
-        return "Descrição: " + descricao + "\n"
+        return "{" +
+                "Descrição: " + descricao + "\n"
                 + "Concluída: " + concluida + "\n"
-                + "Pessoa Responsável: " + pessoaResponsavel;
+                + "Pessoa Responsável: " + pessoaResponsavel +
+                "}";
     }
 }
