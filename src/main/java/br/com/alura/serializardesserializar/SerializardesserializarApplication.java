@@ -2,6 +2,7 @@ package br.com.alura.serializardesserializar;
 
 import br.com.alura.serializardesserializar.Modelos.Tarefas;
 import br.com.alura.serializardesserializar.services.ConverteDados;
+import br.com.alura.serializardesserializar.services.LeituraArquivo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -35,12 +36,8 @@ public class SerializardesserializarApplication implements CommandLineRunner {
 		Tarefas tarefaJSON = new Tarefas("Fazer comida", false, "Outra pessoa");
 		converteDados.serializar(tarefaJSON, arquivo);
 
-		Scanner lerArquivoJSON = new Scanner(arquivo);
-
-		while (lerArquivoJSON.hasNextLine()) {
-			String textoArquivo = lerArquivoJSON.nextLine();
-			System.out.println(textoArquivo);
-		}
+		LeituraArquivo lerArquivoJSON = new LeituraArquivo();
+		lerArquivoJSON.lerArquivo(arquivo);
 
 
 
