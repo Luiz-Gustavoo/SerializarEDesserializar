@@ -8,6 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.File;
+import java.io.FileReader;
+import java.util.Scanner;
 
 @SpringBootApplication
 public class SerializardesserializarApplication implements CommandLineRunner {
@@ -26,22 +28,19 @@ public class SerializardesserializarApplication implements CommandLineRunner {
 
 		ConverteDados converteDados = new ConverteDados();
 		Tarefas tarefaConvertida = converteDados.desserializar(json, Tarefas.class);
+		System.out.println("JSON convertido em objeto: ");
 		System.out.println(tarefaConvertida);
 
 		//SERIALIZAR - objeto Tarefas em um arquivo JSON
-		String escreverTarefa = converteDados.serializar(arquivo, tarefaConvertida);
+		Tarefas tarefaJSON = new Tarefas("Fazer comida", false, "Outra pessoa");
+		converteDados.serializar(tarefaJSON, arquivo);
 
+		Scanner lerArquivoJSON = new Scanner(arquivo);
 
-
-//		System.out.println("----------------------------------------------------------------------------------------");
-//		//USANDO GSON
-//
-//		Gson gson = new Gson();
-//
-//		Tarefas tarefa3 = new Tarefas("comer", true, "outra pessoa");
-//
-//		String tarefa3Convertida = gson.toJson(tarefa3);
-//		System.out.println(tarefa3Convertida);
+		while (lerArquivoJSON.hasNextLine()) {
+			String textoArquivo = lerArquivoJSON.next();
+			System.out.println(textoArquivo);
+		}
 
 
 
