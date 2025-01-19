@@ -41,10 +41,8 @@ public class Tarefas {
 
     @Override
     public String toString() {
-        return "{" +
-                "Descrição: " + descricao + "\n"
-                + "Concluída: " + concluida + "\n"
-                + "Pessoa Responsável: " + pessoaResponsavel +
-                "}";
+        return "Descrição: " + descricao + "\n" +
+                "Concluída: " + concluida + "\n" +
+                "Pessoa Responsável: " + pessoaResponsavel + "\n";
     }
 }
