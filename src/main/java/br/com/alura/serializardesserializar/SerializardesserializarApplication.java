@@ -38,7 +38,7 @@ public class SerializardesserializarApplication implements CommandLineRunner {
 		Scanner lerArquivoJSON = new Scanner(arquivo);
 
 		while (lerArquivoJSON.hasNextLine()) {
-			String textoArquivo = lerArquivoJSON.next();
+			String textoArquivo = lerArquivoJSON.nextLine();
 			System.out.println(textoArquivo);
 		}
 
